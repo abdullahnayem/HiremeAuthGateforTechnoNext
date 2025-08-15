@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+<div class="text-center">
+    <h2 class="text-danger">✖ @(TempData["Error"] ?? ViewBag.Message)</h2>
+    <a class="btn btn-primary mt-3" asp-controller="Account" asp-action="Login">Back to Login</a>
+</div>

@@ -1,0 +1,17 @@
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\bin\Debug\net8.0\HiremeAuthGate.Services.deps.json
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\bin\Debug\net8.0\HiremeAuthGate.Services.runtimeconfig.json
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\bin\Debug\net8.0\HiremeAuthGate.Services.dll
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\bin\Debug\net8.0\HiremeAuthGate.Services.pdb
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\bin\Debug\net8.0\HiremeAuthGate.BusinessModel.dll
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\bin\Debug\net8.0\HiremeAuthGate.BusinessModel.pdb
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.csproj.AssemblyReference.cache
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.GeneratedMSBuildEditorConfig.editorconfig
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.AssemblyInfoInputs.cache
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.AssemblyInfo.cs
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.csproj.CoreCompileInputs.cache
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAu.D28EB3F7.Up2Date
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.dll
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\refint\HiremeAuthGate.Services.dll
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.pdb
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\HiremeAuthGate.Services.genruntimeconfig.cache
+E:\tt\HiremeAuthGate\HiremeAuthGate.Services\obj\Debug\net8.0\ref\HiremeAuthGate.Services.dll
