@@ -143,3 +143,4 @@ E:\tt\HiremeAuthGate\HiremeAuthGate.Web\obj\Debug\net8.0\staticwebassets.upToDat
 E:\tt\HiremeAuthGate\HiremeAuthGate.Web\obj\Debug\net8.0\HiremeAu.2067CD62.Up2Date
 E:\tt\HiremeAuthGate\HiremeAuthGate.Web\obj\Debug\net8.0\HiremeAuthGate.Web.genruntimeconfig.cache
 E:\tt\HiremeAuthGate\HiremeAuthGate.Web\obj\Debug\net8.0\ref\HiremeAuthGate.Web.dll
+E:\tt\HiremeAuthGate\HiremeAuthGate.Web\obj\Debug\net8.0\HiremeAuthGate.Web.sourcelink.json

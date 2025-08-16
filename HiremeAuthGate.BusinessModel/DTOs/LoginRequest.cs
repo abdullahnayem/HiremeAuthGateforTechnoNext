@@ -2,6 +2,10 @@
 
 namespace HiremeAuthGate.BusinessModel.DTOs
 {
+    /// <summary>
+    /// Data Transfer Object for user login requests.
+    /// Contains validation attributes for email and password fields.
+    /// </summary>
     public class LoginRequest
     {
         [Required(ErrorMessage = "Email is required")]

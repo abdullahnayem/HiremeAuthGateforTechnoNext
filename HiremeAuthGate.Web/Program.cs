@@ -5,6 +5,10 @@ using HiremeAuthGate.Services.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
+/// <summary>
+/// Main entry point for the HiremeAuthGate web application.
+/// Configures services, middleware, and application startup.
+/// </summary>
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -44,8 +48,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -56,10 +58,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-// Ensure database is created
+
+// Ensure database is created and migrations are applied
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     await db.Database.MigrateAsync();
 }
+
 app.Run();

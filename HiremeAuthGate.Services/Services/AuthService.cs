@@ -4,11 +4,30 @@ using HiremeAuthGate.Services.Interfaces;
 
 namespace HiremeAuthGate.Services.Services
 {
+    /// <summary>
+    /// Service implementation for authentication operations.
+    /// Handles user authentication, registration, and account security features.
+    /// </summary>
     public class AuthService(IUserRepository users) : IAuthService
     {
+        /// <summary>
+        /// Maximum number of failed login attempts before account lockout.
+        /// </summary>
         private const int MaxLoginAttempts = 5;
+        
+        /// <summary>
+        /// Duration in minutes for account lockout after exceeding max login attempts.
+        /// </summary>
         private const int LockoutDurationMinutes = 15;
 
+        /// <summary>
+        /// Authenticates a user with the provided email and password.
+        /// Implements account locking mechanism and security features.
+        /// </summary>
+        /// <param name="email">The email address of the user.</param>
+        /// <param name="password">The password to authenticate.</param>
+        /// <param name="ct">Cancellation token for async operation.</param>
+        /// <returns>A result containing the authenticated user or error information.</returns>
         public async Task<Result<User>> AuthenticateAsync(string email, string password, CancellationToken ct = default)
         {
             try
@@ -69,6 +88,14 @@ namespace HiremeAuthGate.Services.Services
             }
         }
 
+        /// <summary>
+        /// Registers a new user with the provided email and password.
+        /// Validates uniqueness and securely hashes the password.
+        /// </summary>
+        /// <param name="email">The email address for the new user.</param>
+        /// <param name="password">The password for the new user.</param>
+        /// <param name="ct">Cancellation token for async operation.</param>
+        /// <returns>A result containing the registered user or error information.</returns>
         public async Task<Result<User>> RegisterAsync(string email, string password, CancellationToken ct = default)
         {
             try

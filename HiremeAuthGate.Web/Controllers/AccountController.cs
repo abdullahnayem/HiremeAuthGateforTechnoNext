@@ -9,20 +9,45 @@ using System.Text.RegularExpressions;
 
 namespace HiremeAuthGate.Web.Controllers
 {
+    /// <summary>
+    /// Controller for handling user authentication operations.
+    /// Manages login, registration, and logout functionality with security features.
+    /// </summary>
     public class AccountController : Controller
     {
+        /// <summary>
+        /// The authentication service for user operations.
+        /// </summary>
         private readonly IAuthService _auth;
+        
+        /// <summary>
+        /// Initializes a new instance of the AccountController.
+        /// </summary>
+        /// <param name="auth">The authentication service dependency.</param>
         public AccountController(IAuthService auth)
         {
             _auth = auth;
         }
 
+        /// <summary>
+        /// Displays the login form to the user.
+        /// </summary>
+        /// <param name="returnUrl">Optional URL to redirect after successful login.</param>
+        /// <returns>The login view with an empty LoginRequest model.</returns>
         [HttpGet]
         public IActionResult Login(string? returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             return View(new LoginRequest());
         }
+        
+        /// <summary>
+        /// Processes user login authentication.
+        /// Validates credentials, handles account locking, and creates authentication cookies.
+        /// </summary>
+        /// <param name="model">The login request containing email and password.</param>
+        /// <param name="returnUrl">Optional URL to redirect after successful login.</param>
+        /// <returns>Redirect to success page, error page, or return URL.</returns>
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequest model, string? returnUrl = null)
         {
@@ -71,12 +96,22 @@ namespace HiremeAuthGate.Web.Controllers
             return RedirectToAction("Success", "Home");
         }
 
+        /// <summary>
+        /// Displays the registration form to the user.
+        /// </summary>
+        /// <returns>The registration view with an empty RegisterRequest model.</returns>
         [HttpGet]
         public IActionResult Register()
         {
             return View(new RegisterRequest());
         }
 
+        /// <summary>
+        /// Processes user registration.
+        /// Validates input and creates a new user account.
+        /// </summary>
+        /// <param name="model">The registration request containing email, password, and confirmation.</param>
+        /// <returns>Redirect to login page on success, or registration view with errors.</returns>
         [HttpPost]
         public async Task<IActionResult> Register(RegisterRequest model)
         {
@@ -94,14 +129,17 @@ namespace HiremeAuthGate.Web.Controllers
             return RedirectToAction("Login");
         }
 
+        /// <summary>
+        /// Logs out the currently authenticated user.
+        /// Clears authentication cookies and redirects to login page.
+        /// </summary>
+        /// <returns>Redirect to login page.</returns>
         [Authorize]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
-
-
     }
 }
 
