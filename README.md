@@ -5,55 +5,58 @@ A comprehensive ASP.NET Core 8.0 web application demonstrating enterprise-level 
 ## 🎯 Key Technologies & Features
 
 ### **Backend Technologies**
-• **ASP.NET Core 8.0** - Latest .NET framework with performance optimizations
-• **Entity Framework Core 8.0** - Modern ORM with SQL Server integration
-• **BCrypt.Net-Next 4.0.3** - Industry-standard password hashing with work factor 12
-• **Dapper 2.1.28** - High-performance micro-ORM for data access
-• **Serilog 8.0.0** - Structured logging with file and console sinks
-• **Microsoft.Extensions.Configuration.Binder** - Configuration management
-• **Microsoft.Extensions.Logging.Abstractions** - Logging infrastructure
+
+- **ASP.NET Core 8.0** – Latest .NET framework with performance optimizations
+- **Entity Framework Core 8.0** – Modern ORM with SQL Server integration
+- **BCrypt.Net-Next 4.0.3** – Industry-standard password hashing with work factor 12
+- **Dapper 2.1.28** – High-performance micro-ORM for data access
+- **Serilog 8.0.0** – Structured logging with file and console sinks
+- **Microsoft.Extensions.Configuration.Binder** – Configuration management
+- **Microsoft.Extensions.Logging.Abstractions** – Logging infrastructure
+
+
 
 ### **Frontend Technologies**
-• **Bootstrap 5** - Modern responsive CSS framework
-• **jQuery Validation** - Client-side form validation
-• **jQuery Validation Unobtrusive** - Unobtrusive validation integration
-• **Custom CSS/JS** - Tailored styling and interactive features
+- **Bootstrap 5** - Modern responsive CSS framework
+- **jQuery Validation** - Client-side form validation
+- **jQuery Validation Unobtrusive** - Unobtrusive validation integration
+- **Custom CSS/JS** - Tailored styling and interactive features
 
 ### **Architecture & Design Patterns**
-• **Layered Architecture** - Separation of concerns across BusinessModel, Services, and Web layers
-• **Repository Pattern** - Data access abstraction with interface-based design
-• **Dependency Injection** - Loose coupling and testability
-• **MVC Pattern** - Model-View-Controller separation
-• **DTO Pattern** - Data transfer objects for API contracts
-• **Result Pattern** - Generic result wrapper for error handling
+- **Layered Architecture** - Separation of concerns across BusinessModel, Services, and Web layers
+- **Repository Pattern** - Data access abstraction with interface-based design
+- **Dependency Injection** - Loose coupling and testability
+- **MVC Pattern** - Model-View-Controller separation
+- **DTO Pattern** - Data transfer objects for API contracts
+- **Result Pattern** - Generic result wrapper for error handling
 
 ### **Security Features**
-• **Account Locking** - Configurable lockout after failed attempts (5 attempts = 15-minute lock)
-• **Password Security** - BCrypt hashing with work factor 12
-• **Session Management** - Secure cookie-based authentication
-• **Input Validation** - Comprehensive client and server-side validation
-• **Global Exception Handling** - Centralized error handling and logging
-• **HTTPS Enforcement** - Secure cookie policies and HTTPS redirection
+- **Account Locking** - Configurable lockout after failed attempts (5 attempts = 15-minute lock)
+- **Password Security** - BCrypt hashing with work factor 12
+- **Session Management** - Secure cookie-based authentication
+- **Input Validation** - Comprehensive client and server-side validation
+- **Global Exception Handling** - Centralized error handling and logging
+- **HTTPS Enforcement** - Secure cookie policies and HTTPS redirection
 
 ### **Database & Data Access**
-• **SQL Server** - Enterprise database with LocalDB support
-• **Entity Framework Migrations** - Version-controlled schema management
-• **Dapper Integration** - High-performance data access for complex queries
-• **Connection String Security** - Trusted connections with certificate validation
+- **SQL Server** - Enterprise database with LocalDB support
+- **Entity Framework Migrations** - Version-controlled schema management
+- **Dapper Integration** - High-performance data access for complex queries
+- **Connection String Security** - Trusted connections with certificate validation
 
 ### **Development & DevOps**
-• **Structured Logging** - Serilog with daily rolling file logs
-• **Configuration Management** - JSON-based settings with environment support
-• **Global Exception Middleware** - Centralized error handling
-• **Database Auto-Migration** - Automatic schema updates on startup
-• **XML Documentation** - Comprehensive code documentation
+- **Structured Logging** - Serilog with daily rolling file logs
+- **Configuration Management** - JSON-based settings with environment support
+- **Global Exception Middleware** - Centralized error handling
+- **Database Auto-Migration** - Automatic schema updates on startup
+- **XML Documentation** - Comprehensive code documentation
 
 ### **User Experience**
-• **Responsive Design** - Mobile-first Bootstrap 5 implementation
-• **Form Validation** - Real-time client-side and server-side validation
-• **User Feedback** - Success/error messages with TempData
-• **Modern UI** - Clean, professional interface design
-• **Accessibility** - Semantic HTML and ARIA support
+- **Responsive Design** - Mobile-first Bootstrap 5 implementation
+- **Form Validation** - Real-time client-side and server-side validation
+- **User Feedback** - Success/error messages with TempData
+- **Modern UI** - Clean, professional interface design
+- **Accessibility** - Semantic HTML and ARIA support
 
 ---
 
