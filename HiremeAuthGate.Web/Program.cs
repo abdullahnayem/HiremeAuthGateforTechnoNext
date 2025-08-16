@@ -2,20 +2,24 @@ using HiremeAuthGate.Services.Data;
 using HiremeAuthGate.Services.Interfaces;
 using HiremeAuthGate.Services.Repositories;
 using HiremeAuthGate.Services.Services;
+using HiremeAuthGate.Web.Middleware;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
-/// <summary>
-/// Main entry point for the HiremeAuthGate web application.
-/// Configures services, middleware, and application startup.
-/// </summary>
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog for log value
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .WriteTo.Console()
+    .WriteTo.File("logs/app-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-// Add logging
-builder.Services.AddLogging();
 
 // DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -24,6 +28,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // DI: repositories & services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 // Cookies auth with enhanced security
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -31,7 +36,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.LoginPath = "/Account/Login";
         options.LogoutPath = "/Account/Logout";
-        options.AccessDeniedPath = "/Account/Denied";
         options.ExpireTimeSpan = TimeSpan.FromHours(8);
         options.SlidingExpiration = true;
         options.Cookie.HttpOnly = true;
@@ -48,6 +52,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Add global exception handler middleware
+app.UseGlobalExceptionHandler();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -57,7 +64,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 // Ensure database is created and migrations are applied
 using (var scope = app.Services.CreateScope())

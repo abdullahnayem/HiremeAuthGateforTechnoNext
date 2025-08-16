@@ -3,15 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HiremeAuthGate.Services.Data
 {
-    /// <summary>
-    /// Entity Framework Core database context for the authentication system.
-    /// Manages database connections and entity configurations.
-    /// </summary>
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {
-        /// <summary>
-        /// Gets the Users DbSet for database operations on user entities.
-        /// </summary>
         public DbSet<User> Users => Set<User>();
 
         /// <summary>

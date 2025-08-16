@@ -3,20 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HiremeAuthGate.Web.Controllers
 {
-    /// <summary>
-    /// Controller for handling home page and general application views.
-    /// Manages success and error pages for authentication flow.
-    /// </summary>
     public class HomeController : Controller
     {
-        /// <summary>
-        /// Default action that redirects to the login page.
-        /// </summary>
-        /// <returns>Redirect to the Account/Login action.</returns>
-        public IActionResult Index()
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
         {
-            return RedirectToAction("Login", "Account");
+            _logger = logger;
         }
+
 
         /// <summary>
         /// Displays the success page for authenticated users.
@@ -26,7 +21,8 @@ namespace HiremeAuthGate.Web.Controllers
         [Authorize]
         public IActionResult Success()
         {
-            ViewBag.Message = "Authentication Success";
+            var userEmail = User.Identity?.Name;
+            _logger.LogInformation("Success page accessed by user: {Email}", userEmail);
             return View();
         }
 
@@ -37,7 +33,9 @@ namespace HiremeAuthGate.Web.Controllers
         /// <returns>The error view with authentication error message.</returns>
         public IActionResult Error()
         {
-            ViewBag.Message = "Authentication Error";
+            var errorMessage = TempData["Error"]?.ToString() ?? "Unknown error";
+            var userEmail = User.Identity?.Name;
+            _logger.LogWarning("Error page accessed. Error: {ErrorMessage}, User: {Email}", errorMessage, userEmail);
             return View();
         }
     }

@@ -2,10 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HiremeAuthGate.BusinessModel.DTOs
 {
-    /// <summary>
-    /// Data Transfer Object for user registration requests.
-    /// Contains validation attributes for email, password, and password confirmation.
-    /// </summary>
     public class RegisterRequest
     {
         [Required(ErrorMessage = "Email is required")]

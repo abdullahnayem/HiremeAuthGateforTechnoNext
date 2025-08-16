@@ -2,42 +2,129 @@
 @{
     ViewData["Title"] = "Register";
 }
-<div class="row justify-content-center">
-    <div class="col-md-5">
-        <div class="card shadow-sm border-0">
-            <div class="card-body p-4">
-                <h3 class="mb-3">Register</h3>
-                <form asp-action="Register" method="post" id="registerForm">
-                    <div class="mb-3">
-                        <label asp-for="Email" class="form-label">Email</label>
-                        <input asp-for="Email" class="form-control" placeholder="name@example.com" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Password" class="form-label">Password</label>
-                        <div class="input-group">
-                            <input asp-for="Password" class="form-control" type="password" placeholder="******" id="registerPasswordInput" />
-                            <button class="btn btn-outline-secondary" type="button" id="registerPasswordToggle">
-                                <i class="bi bi-eye" id="registerPasswordIcon"></i>
-                            </button>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/auth.css" />
+}
+
+<div class="auth-container d-flex align-items-center justify-content-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="auth-card">
+                    <div class="row g-0">
+                        <!-- Hero Section -->
+                        <div class="col-lg-6 hero-section d-flex align-items-center justify-content-center position-relative">
+                            <div class="floating-shapes">
+                                <div class="shape"></div>
+                                <div class="shape"></div>
+                                <div class="shape"></div>
+                            </div>
+                            <div class="text-center text-white position-relative z-index-1">
+                                <div class="mb-4">
+                                    <i class="bi bi-person-plus" style="font-size: 4rem; opacity: 0.9;"></i>
+                                </div>
+                                <h2 class="fw-bold mb-3">Join Us Today!</h2>
+                                <p class="mb-0 opacity-75">Create your account and start your journey</p>
+                            </div>
                         </div>
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
-                        <div class="input-group">
-                            <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="******" id="registerConfirmPasswordInput" />
-                            <button class="btn btn-outline-secondary" type="button" id="registerConfirmPasswordToggle">
-                                <i class="bi bi-eye" id="registerConfirmPasswordIcon"></i>
-                            </button>
+                        
+                        <!-- Form Section -->
+                        <div class="col-lg-6 form-section">
+                            <div class="text-center mb-4">
+                                <h1 class="auth-title">Create Account</h1>
+                                <p class="auth-subtitle">Fill in your details to create your account</p>
+                            </div>
+                            
+                            <!-- Success Message -->
+                            @if (TempData["Success"] != null)
+                            {
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <i class="bi bi-check-circle me-2"></i>
+                                    @TempData["Success"]
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            }
+                            
+                            <!-- Error Message -->
+                            @if (TempData["Error"] != null)
+                            {
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <i class="bi bi-exclamation-triangle me-2"></i>
+                                    @TempData["Error"]
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            }
+                            
+                            <!-- Warning Message -->
+                            @if (TempData["Warning"] != null)
+                            {
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <i class="bi bi-exclamation-circle me-2"></i>
+                                    @TempData["Warning"]
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            }
+                            
+                            <form asp-action="Register" method="post" id="registerForm">
+                                <div class="mb-4">
+                                    <label asp-for="Email" class="form-label fw-semibold">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-envelope"></i>
+                                        </span>
+                                        <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
+                                    </div>
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label asp-for="Password" class="form-label fw-semibold">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock"></i>
+                                        </span>
+                                        <input asp-for="Password" class="form-control password-input" type="password" placeholder="Create a strong password" id="registerPasswordInput" />
+                                        <button class="btn btn-outline-secondary" type="button" id="registerPasswordToggle">
+                                            <i class="bi bi-eye" id="registerPasswordIcon"></i>
+                                        </button>
+                                    </div>
+                                    <span asp-validation-for="Password" class="text-danger small"></span>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label asp-for="ConfirmPassword" class="form-label fw-semibold">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock-fill"></i>
+                                        </span>
+                                        <input asp-for="ConfirmPassword" class="form-control password-input" type="password" placeholder="Confirm your password" id="registerConfirmPasswordInput" />
+                                        <button class="btn btn-outline-secondary" type="button" id="registerConfirmPasswordToggle">
+                                            <i class="bi bi-eye" id="registerConfirmPasswordIcon"></i>
+                                        </button>
+                                    </div>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                                </div>
+                                
+                                <div class="d-grid mb-4">
+                                    <button class="btn btn-primary btn-lg" type="submit">
+                                        <i class="bi bi-person-plus me-2"></i>
+                                        Create Account
+                                    </button>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <p class="mb-0 text-muted">
+                                        Already have an account? 
+                                        <a asp-action="Login" class="auth-link">
+                                            Sign In
+                                        </a>
+                                    </p>
+                                </div>
+                            </form>
                         </div>
-                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                     </div>
-                    <button class="btn btn-primary w-100" type="submit">Register</button>
-                    <div class="text-center mt-3">
-                        <a asp-action="Login" class="text-decoration-none">Already have an account? Login</a>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

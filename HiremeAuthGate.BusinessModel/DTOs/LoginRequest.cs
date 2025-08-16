@@ -2,10 +2,6 @@
 
 namespace HiremeAuthGate.BusinessModel.DTOs
 {
-    /// <summary>
-    /// Data Transfer Object for user login requests.
-    /// Contains validation attributes for email and password fields.
-    /// </summary>
     public class LoginRequest
     {
         [Required(ErrorMessage = "Email is required")]
@@ -15,7 +11,6 @@ namespace HiremeAuthGate.BusinessModel.DTOs
 
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "Password must be at least 6 characters long")]
         public string Password { get; set; } = string.Empty;
     }
 }
