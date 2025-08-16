@@ -76,10 +76,7 @@
 }
 
 .input-group-text {
-    background: transparent;
     border: 2px solid #e9ecef;
-    border-left: none;
-    border-radius: 0 12px 12px 0;
 }
 
 .form-control.password-input {
