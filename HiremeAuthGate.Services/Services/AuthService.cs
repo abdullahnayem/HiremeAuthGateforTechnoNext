@@ -6,37 +6,20 @@ using Microsoft.Extensions.Logging;
 
 namespace HiremeAuthGate.Services.Services
 {
-    /// <summary>
-    /// Service implementation for authentication operations.
-    /// Handles user authentication, registration, and account security features.
-    /// </summary>
     public class AuthService : IAuthService
     {
         private readonly IUserRepository _users;
         private readonly IConfiguration _configuration;
         private readonly ILogger<AuthService> _logger;
 
-        /// <summary>
-        /// Initializes a new instance of the AuthService.
-        /// </summary>
-        /// <param name="users">The user repository dependency.</param>
-        /// <param name="configuration">The configuration dependency.</param>
-        /// <param name="logger">The logger dependency.</param>
         public AuthService(IUserRepository users, IConfiguration configuration, ILogger<AuthService> logger)
         {
             _users = users;
             _configuration = configuration;
             _logger = logger;
         }
-
-        /// <summary>
-        /// Gets the maximum number of login attempts from configuration.
-        /// </summary>
         private int MaxLoginAttempts => _configuration.GetValue<int>("Security:MaxLoginAttempts", 5);
         
-        /// <summary>
-        /// Gets the lockout duration in minutes from configuration.
-        /// </summary>
         private int LockoutDurationMinutes => _configuration.GetValue<int>("Security:LockoutDurationMinutes", 15);
 
         /// <summary>
